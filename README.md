@@ -2,6 +2,8 @@
 ## Here we are trying to make a websites in which we will make, the following things...
 1. ***The Notes***:- We are here making, a website in which we are give students Notes according to courses and respective things according to pack the student purchased. 🙏 💥
 
+**Our main page is here:- [click](https://dream-project-ecru.vercel.app/), sign up here and enjoy advantages.**
+
 https://github.com/user-attachments/assets/9e636e05-babf-4f4c-85e0-ded44f48e6d2
 
 2. ***The Swords ⚔️*** :- A upcoming series of Nowt, a fully designed website which describe all about this series for till now keep it secret. :shushing_face:
