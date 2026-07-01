@@ -1,0 +1,388 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    background: black;
+    color: #e7e7e7;
+    min-height: 100vh;
+    line-height: 1.5;
+}
+
+/* GRADIENT AND LAYER BLUR EFFECT BOLTE LADLE 😒 */
+
+.img-grad{
+    position: absolute;
+    top: 0;
+    right: 0;
+    opacity: 0.5;
+    z-index: -1;
+}
+
+.layer-blur{
+    height: 0;
+    width: 30rem;
+    position: absolute;
+    top: 20%;
+    right: 0;
+    box-shadow: 0 0 700px 15px white;
+    rotate: -30deg;
+    z-index: -1;
+}
+
+/* Ab banaega container bhaiyon... 🤡 */
+
+.container{
+    width: 100%;
+    margin: 0 auto;
+    padding: 0 2rem;
+    position: relative;
+    overflow: hidden;
+}
+
+/* Headerrrr.... bhaiya ji 🙏 */
+
+header{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 5rem;
+    z-index: 999;
+}
+
+header h1{
+    margin: 0;
+    font-size: 3rem;
+    font-weight: 300;
+}
+
+nav{
+    display: flex;
+    align-items: center;
+    gap: 3rem;
+    margin-left: -5%;
+}
+
+nav a{
+    font-size: 1rem;
+    letter-spacing: 0.1rem;
+    transition: color 0.2 ease;
+    text-decoration: none;
+    color: inherit;
+}
+
+nav a:hover {
+    color: #a7a7a7;
+}
+
+.launch{
+    background-color: #a7a7a7;
+    position: relative;
+    z-index: 999;
+    color: black;
+    padding: 0.8rem 2rem;
+    border-radius: 50px;
+    border: none;
+    font-size: 1rem;
+    font-weight: 500;
+    transition: background-color 0.2s ease;
+    cursor: pointer;
+}
+
+.launch:hover{
+    background-color: white;
+}
+
+/* Main content laadle */
+
+main{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    min-height: calc(90vh - 6rem);
+}
+
+.content{
+    max-width: 40rem;
+    margin-left: 10%;
+    z-index: 999;
+}
+
+.tag-dabba{
+    position: relative;
+    width: 18rem;
+    height: 2.5rem;
+    border-radius: 50px;
+    background: linear-gradient(to right, #656565, #7f42a7, #6600c5, #5300a0, #757575, #656565);
+    background-size: 200%;
+    animation: tagwala 2.5s linear infinite;
+    box-shadow: 0 0 15px rgba(255, 255, 255, 0.3);
+}
+
+@keyframes tagwala {
+    to {
+        background-position: 250%;
+    }
+}
+
+.tag-dabba .tag{
+    position: absolute;
+    inset: 3px 3px 3px 3px;
+    background-color: black;
+    border-radius: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: 0.5s ease;
+    cursor: pointer;
+}
+
+.tag-dabba .tag:hover {
+    color:  #5300a0;
+}
+
+.content h1{
+    font-size: 4rem;
+    font-weight: 650;
+    letter-spacing: 0.1em;
+    margin: 2rem 0;
+    line-height: 1.2;
+    text-shadow: 0 0 10px rgba(128, 128, 128, 0.418);
+}
+
+.description{
+    font-size: 1.2rem;
+    letter-spacing: 0.05em;
+    max-width: 35rem;
+    color: gray;
+}
+
+.buttons{
+    display: flex;
+    gap: 1rem;
+}
+
+.btn-get-started{
+    margin-top: 2%;
+    text-decoration: none;
+    border: 1px solid #2a2a2a;
+    padding: 0.3rem 1.1rem;
+    border-radius: 50px;
+    font-size: 1.2rem;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    transition: background-color 0.7s ease;
+    transition: color 2s ease;
+    color: #cf4130;
+}
+
+.btn-get-started:hover{
+    background-color: #1a1a1a;
+    color: #99ff00;
+}
+
+.btn-signing-main{
+    margin-top: 2%;
+    text-decoration: none;
+    border: 3px solid #2a2a2a;
+    padding: 0.3rem 1.1rem;
+    border-radius: 50px;
+    font-size: 1.2rem;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    transition: color 2s ease;
+    color: #1b1a1a;
+    background: linear-gradient(to left, #b44b58, #653ac5, #6a16e9, #ff0300, #798681);
+    background-size: 200%;
+    animation: btn-bolte 5.2s linear infinite;
+}
+
+@keyframes btn-bolte {
+    to{
+        background-position: 300%;
+    }
+}
+
+.btn-signing-main:hover{
+    color: #99ff00;
+}
+
+.nava-log{
+    position: relative;
+    z-index: 999;
+}
+
+.book{
+    position: absolute;
+    height: 96vh;
+    width: 100vh;
+}
+
+.book-3d{
+    position: absolute;
+    top: 0;
+    right: -95%;
+}
+
+.program{
+    position: relative;
+    text-align: center;
+}
+
+.program h1{
+    text-align: center;
+    margin-top: 4%;
+}
+
+.select{
+    width: 23vh;
+    border-radius: 20vh;
+    color: #0de5d7;
+    text-decoration: none;
+    background: linear-gradient(to right, blue, white);
+    border: none;
+    transition: color 0.9s ease;
+    background-size: 200%;
+    animation: slc 6s linear infinite;
+}
+
+@keyframes slc{
+    to {
+        background-position: 250%;
+    }
+}
+
+.select:hover{
+    color: #f40000;
+}
+
+.select{
+    text-decoration: solid;
+    font: bolder;
+    cursor: pointer;
+    font-size: 18px;
+    font-weight: 300;
+}
+
+/* Apna paisa wala section */
+
+ .premium-container { margin-top: 50px; text-align: center; }
+        .pricing-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 25px; margin-top: 30px; }
+        .price-card { background: #df0c75; padding: 30px; border-radius: 20px; transition: transform 0.3s ease; border: 2px solid transparent; text-align: left; position: relative;}
+        .price-card:hover { transform: translateY(-10px); }
+        .price-card.featured { border-color: var(--primary); box-shadow: 0 15px 35px rgba(99, 102, 241, 0.2); }
+        .price-card.ultimate { background: var(--dark); color: white; }
+        .price { font-size: 2.2rem; font-weight: 800; margin: 15px 0; color: var(--primary); }
+        .ultimate .price { color: #818cf8; }
+        ul { list-style: none; padding: 0; margin: 20px 0; }
+        ul li { margin-bottom: 12px; font-size: 14px; display: flex; align-items: center; }
+        ul li i { color: #22c55e; margin-right: 10px; }
+        .btn-buy { width: 100%; background: rgb(206, 37, 37); color: rgb(25, 5, 5); border: none; padding: 12px; border-radius: 50px; font-weight: bold; cursor: pointer; }
+        .ultimate .btn-buy { background: rgb(25, 5, 5); color: var(--dark); }
+
+        /* Payment Modal CSS */
+        .modal { display: none; position: fixed; top:0; left:0; width:100%; height:100%; background: rgba(0,0,0,0.8); z-index: 1000; justify-content: center; align-items: center;}
+        .modal-content { background: white; padding: 30px; border-radius: 15px; width: 400px; text-align: center; position: relative; }
+        .close-btn { position: absolute; top: 15px; right: 20px; font-size: 20px; cursor: pointer; color: #555; }
+        .qr-code { width: 150px; height: 150px; background: #eee; margin: 10px auto; border: 2px dashed #ccc; display:flex; justify-content:center; align-items:center; overflow: hidden;}
+        
+        @media (max-width: 768px) { .grid-layout { grid-template-columns: 1fr; } }
+
+/* For bade device jesa banana */
+
+@media (max-width: 1300px){
+    header{
+        padding: 1rem 0.5rem;
+    }
+
+    .content {
+        margin-top: 85%;
+    }
+
+    .book-3d{
+        scale: 1.5;
+        top: -45%;
+        right: -20%;
+    }
+}
+
+/* for mobile ke liye */
+
+
+@media (max-width: 768px){
+    header{
+        padding: 1rem 0.1rem;
+    }
+    
+    nav{
+        display: none;
+    }
+    
+    header h1{
+        font-size: 2rem;
+    }
+    
+    .launch{
+        padding: 0.6rem 1.5rem;
+    }
+    
+    .content{
+        margin-top: 25rem;
+    }
+    
+    .book-3d{
+        top: -29%;
+        right: 18%;
+        scale: 0.8;
+        position: absolute;
+    }
+
+    .content{
+        max-width: 30rem;
+        margin-left: 10%;
+    }
+    
+    .tag-dabba{
+        width: 12rem;
+    }
+    
+    .content h1{
+        font-size: 2.5rem;
+    }
+    
+    .description{
+        font-size: 1rem;
+    }
+    
+    .btn-get-started{
+        font-size: 0.8rem;
+        padding: 0.5rem 1.2rem;
+    }
+    
+    .btn-signing-main{
+        font-size: 0.8rem;
+        padding: 0.5rem 2rem;
+    }
+
+    /* Aur chote phone */
+
+    @media (max-width: 365px){
+        .book-3d{
+            scale: 0.5;
+            position: absolute;
+            right: 33%;
+        }
+    }
+
+    @media (max-width: 465px){
+        .book-3d{
+            scale: 0.6;
+            position: absolute;
+            right: 29%;
+        }
+    }
+
+}
