@@ -1,0 +1,209 @@
+*{
+  height: 100%;
+  width: 100%;
+  box-sizing: border-box;
+  overflow: hidden;
+}
+
+body{
+  background-color: #5059af;
+}
+
+.body{
+  height: 100%;
+  width: 100%;
+  display: flex;
+}
+
+.animation-box{
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  z-index: -1;
+}
+
+.bg-effect{
+    width: 100%;
+    height: 100%;
+  position: relative;
+  background: linear-gradient(-27deg, transparent 45%, #00E5FF, #FF007F, transparent 55%);
+  animation: effect 3.8s linear infinite;
+  background-size: 300%;
+}
+
+@keyframes effect{
+  0%{
+    background-position: 200% 0%;
+  }
+  100%{
+    background-position: -100% 0%;
+  }
+}
+
+  #preloader {
+        position: absolute;
+        z-index: 999;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+        height: 100vh;
+        background-color: #000;
+        transition: opacity 1s ease-in-out, visibility 1s ease;
+        top: 0;
+        left: 0;
+      }  
+
+.loader{
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 200px;
+    -webkit-box-reflect: below  3px linear-gradient(transparent, #0005); 
+}
+
+.loader .circle{
+    position: absolute;
+    width: 150px;
+    height: 100px;
+    /* background: #fff; */
+    border-radius: 50%;
+    animation: loader 3s linear infinite;
+}
+
+.circle:nth-child(2),
+.circle:nth-child(4){
+    animation-delay: -1s;
+    filter: hue-rotate(220deg);
+}
+
+.circle:nth-child(3),
+.circle:nth-child(6){
+    animation-delay: -2s;
+    filter: hue-rotate(180deg);
+}
+
+@keyframes loader{
+    0%{
+        transform: rotate(0deg);
+    }
+    100%{
+        transform: rotate(360deg);
+    }
+}
+
+.loader .circle:nth-child(1)::before,
+.loader .circle:nth-child(2)::before,
+.loader .circle:nth-child(3)::before
+{
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 60%;
+    height: 50%;
+    background: linear-gradient(to top, transparent, transparent, #00ff9955);
+    background-size: 100px 180px;
+    background-repeat: no-repeat;
+    border-top-left-radius: 100px;
+    border-bottom-left-radius: 100px;
+}
+
+.loader .circle i{
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 20px;
+    height: 20px;
+    background: #00ff99;
+    border-radius: 50%;
+    z-index: 100;
+    box-shadow: 0 0 10px #00ff99,
+    0 0 20px #00ff99,
+    0 0 30px #00ff99,
+    0 0 40px #00ff99,
+    0 0 50px #00ff99,
+    0 0 60px #00ff99,
+    0 0 70px #00ff99,
+    0 0 80px #00ff99,
+    0 0 100px #00ff99;
+}
+
+.circle span{
+    position: absolute;
+    inset: 15px;
+    background: #000;
+    border-radius: 50%;
+}
+
+.pre-likha{
+    position: relative;
+    bottom: 9%;
+    right: 47%;
+    font-size: 10px;
+    justify-content: baseline;
+    align-items: baseline;
+    z-index: 999;
+    color: #fff;
+    font-weight: 600;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    text-align: end;
+}
+
+.image-effect{
+  position: absolute;
+  width: 100px;
+  height: 100px;
+  animation: phatoo 5s;
+  transition: 5s ease-in-out;
+}
+
+@keyframes phatoo{
+  0%{
+    opacity: 0%;
+  }
+  20%{
+    opacity: 0%;
+  }
+  40%{
+    opacity: 0%;
+  }
+  60%{
+    opacity: 0%;
+  }
+  80%{
+    opacity: 0%;
+  }
+  100%{
+    opacity: 70%;
+  }
+}
+
+.page-dabba{
+  margin-top: 4%;
+  display: flex;
+  justify-self: center;
+  align-self: center;
+  width: 60vh;
+  height: 75vh;
+}
+
+.container{
+  position: relative;
+  padding: 20px 17px 20px 17px;
+  border-radius: 17%;
+  background: linear-gradient(to right, #b24d59, #caf609, #f70841);
+  animation: box 5s linear infinite;
+  background-size: 250%;
+}
+
+@keyframes box{
+  to{
+    background-position: 250%;
+  }
+}

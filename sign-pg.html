@@ -3,17 +3,73 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./sign-up.css">
-    <link rel="icon" type="img" href="./Dream-us favicon.jpg">
     <title>Dream us - Sign up</title>
+    <link rel="stylesheet" type="text/css" href="./sign.css">
+    <link rel="shortcut icon" href="Dream-us favicon.jpg" type="image/x-icon">
 </head>
 <body>
-    <div class="body">
+    <!-- Puri body ka dabba 👇 -->
+    <div>
 
-        <div class="bg-effect">
-            
+        <!-- Loader -->
+         <div id="preloader">
+        <div class="loader">
+
+            <div class="circle"><span></span></div>
+            <div class="circle"><span></span></div>
+            <div class="circle"><span></span></div>
+            <div class="circle"><i></i></div>
+            <div class="circle"><i></i></div>
+            <div class="circle"><i></i></div>
+
+            <div class="pre-likha">
+                <h1>Loading....</h1>
+            </div>
+
         </div>
+        </div>
+        <!-- Loader end -->
 
-    </div>
+        <!-- Main bg-effect yha pe niche start -->
+
+        <div class="animation-box">
+            <div class="bg-effect">
+
+            </div>
+        </div>
+        <!-- Main bg-effect yha pe khatam -->
+
+        <!-- Image aayegi uski photo -->
+        <div class="image-effect">
+            <img class="imagica" src="Dream-us favicon.jpg" alt="Dream US">
+        </div>
+        <!-- Image yha khtm -->
+
+        <!-- Yha pe pura dabba banega -->
+        <div class="page-dabba">
+            <div class="container">
+                <form action="">
+
+                </form>
+            </div>
+        </div>
+        <!-- yha pe dabba khtam -->
+
+</div>  
+<!-- Purii body ka dabba 👆 -->
+
+<!-- Script yha pe startatat obv... AI se kyoki ye nhi aata -->
+    <script>
+        window.addEventListener('load', function(){
+            setTimeout(function(){
+                let preloader = document.getElementById('preloader'); 
+
+                preloader.style.opacity = '0';
+                preloader.style.visibility = 'hidden';
+            }, 3500);
+        });
+    </script>
+    <!-- Script yha khtam -->
+
 </body>
 </html>
