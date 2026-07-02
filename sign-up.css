@@ -1,0 +1,27 @@
+*{
+    margin: 0;
+    height: 0;
+    padding: 0;
+    display: flex;
+}
+
+body{
+    margin: 0;
+    height: 0;
+    background-color: #5f60a0;
+    padding: 0;
+    display: flex;
+}
+
+.bg-effect{
+    background: linear-gradient(36deg, #87787f, #7d837c, #807f7f, #ffff, #7d8182);
+    background-size: 100%;
+    animation: effect 3s linear infinite;
+    box-shadow: 12 12 0 rgba(238, 224, 224);
+}
+
+@keyframes effect{
+    to{
+        background-position: 150%;
+    }
+}
