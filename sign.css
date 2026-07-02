@@ -185,6 +185,7 @@ body{
 }
 
 .page-dabba{
+  margin-left: 5%;
   margin-top: 4%;
   display: flex;
   justify-self: center;
@@ -200,10 +201,39 @@ body{
   background: linear-gradient(to right, #b24d59, #caf609, #f70841);
   animation: box 5s linear infinite;
   background-size: 250%;
+  transition: 0.7s ease;
 }
 
 @keyframes box{
   to{
     background-position: 250%;
   }
+}
+
+.container:hover{
+  bottom: 2%;
+}
+
+.g_id_signin{
+  bottom: 40%;
+  left: 20%;
+  position: absolute;
+  z-index: 998;
+  width: 60%;
+  height: 20%;
+  transition: color 0.9s ease;
+}
+
+.g_id_signin:hover{
+  color: #00E5FF;
+}
+
+.likha-poti{
+  position: absolute;
+  z-index: 998;
+  left: 37%;
+  top: 50%;
+  color: #fff;
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  font-weight: bolder;
 }
