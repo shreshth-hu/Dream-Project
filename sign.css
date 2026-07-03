@@ -255,11 +255,6 @@ body{
   .image-effect{
     scale: 0.6;
   }
-
-  .g_id_signin{
-    z-index: 998;
-    position: absolute;
-  }
 }
 
 /* Laadli chote devicesssssssss */
