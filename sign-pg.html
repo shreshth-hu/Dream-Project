@@ -1,123 +1,107 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dream us - Sign up</title>
-    <link rel="stylesheet" type="text/css" href="./sign.css" />
-    <link rel="shortcut icon" href="Dream-us favicon.jpg" type="image/x-icon" />
-    <style>
-      /* पूरी तरह से फिक्स किया गया सुंदर लॉगिन बटन */
-      .custom-google-btn {
-        background: #ffffff;
-        color: #1f1f1f;
-        border: 2px solid #747775;
-        padding: 12px 28px;
-        border-radius: 100px;
-        font-size: 16px;
-        font-weight: bold;
-        cursor: pointer;
-        display: block;
-        width: 80%;
-        max-width: 260px;
-        margin: 25px auto;
-        font-family: sans-serif;
-        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.15);
-        transition: all 0.2s ease;
-        text-align: center;
-      }
-      .custom-google-btn:hover {
-        background: #f1f3f4;
-        transform: translateY(-1px);
-      }
-    </style>
-  </head>
-  <body>
+    <link rel="stylesheet" type="text/css" href="./sign.css">
+    <script src="https://accounts.google.com/gsi/client" async defer></script>
+    <link rel="shortcut icon" href="Dream-us favicon.jpg" type="image/x-icon">
+</head>
+<body>
+    <!-- Puri body ka dabba 👇 -->
     <div>
-      <!-- Loader -->
-      <div id="preloader">
+
+        <!-- Loader -->
+         <div id="preloader">
         <div class="loader">
-          <div class="circle"><span></span></div>
-          <div class="circle"><span></span></div>
-          <div class="circle"><span></span></div>
-          <div class="circle"><i></i></div>
-          <div class="circle"><i></i></div>
-          <div class="circle"><i></i></div>
-          <div class="pre-likha">
-            <h1>Loading....</h1>
-          </div>
+
+            <div class="circle"><span></span></div>
+            <div class="circle"><span></span></div>
+            <div class="circle"><span></span></div>
+            <div class="circle"><i></i></div>
+            <div class="circle"><i></i></div>
+            <div class="circle"><i></i></div>
+
+            <div class="pre-likha">
+                <h1>Loading....</h1>
+            </div>
+
         </div>
-      </div>
-
-      <div class="animation-box">
-        <div class="bg-effect"></div>
-      </div>
-
-      <div class="image-effect">
-        <img class="imagica" src="Dream-us favicon.jpg" alt="Dream US" />
-      </div>
-
-      <div class="page-dabba">
-        <div class="container">
-          <!-- बिना किसी बाहरी इमेज के सॉलिड बटन जो हमेशा काम करेगा -->
-          <button class="custom-google-btn" id="loginBtn">
-            Sign in with Google
-          </button>
-
-          <p class="likha-poti">
-            We have only google right now, <br />
-            as they supported us 🙏🫠
-          </p>
         </div>
-      </div>
+        <!-- Loader end -->
+
+        <!-- Main bg-effect yha pe niche start -->
+
+        <div class="animation-box">
+            <div class="bg-effect">
+
+            </div>
+        </div>
+        <!-- Main bg-effect yha pe khatam -->
+
+        <!-- Image aayegi uski photo -->
+        <div class="image-effect">
+            <img class="imagica" src="Dream-us favicon.jpg" alt="Dream US">
+        </div>
+        <!-- Image yha khtm -->
+
+        <!-- Yha pe pura dabba banega -->
+        <div class="page-dabba">
+
+            <div class="container">
+
+                <div id="g_id_onload"
+     data-client_id="97180051145-ao99uhacpl7eu4mrpr7srmjgcqmdf4vc.apps.googleusercontent.com"
+     data-context="signin"
+     data-ux_mode="popup"
+     data-callback="handleCredentialResponse"
+     data-auto_prompt="false">
+</div>
+
+<div class="g_id_signin"
+
+     data-type="standard"
+     data-shape="pill"
+     data-theme="outline"
+     data-text="signin_with"
+     data-size="large">
+
+     <p class="likha-poti">We have only google right now, <br> as they supported us 🙏🫠</p>
+</div>
+     
     </div>
+    
+    <p class="likha-poti">We have only google right now, <br> as they supported us 🙏🫠</p>
 
-    <!-- Firebase Script Logic -->
-    <script type="module">
-      import { initializeApp } from "https://gstatic.com";
-      import {
-        getAuth,
-        GoogleAuthProvider,
-        signInWithPopup,
-      } from "https://gstatic.com";
+            </div>
+</div>
 
-      const firebaseConfig = {
-        apiKey: "AIzaSyBdW3lQ8_HSGt8qPhvEFgYSuL9MbRBZ6W0",
-        authDomain: "://firebaseapp.com",
-        projectId: "dream-us-501219",
-        storageBucket: "dream-us-501219.firebasestorage.app",
-        messagingSenderId: "97180051145",
-        appId: "1:97180051145:web:5fa994d88f036108bfcf18",
-      };
+        </div>
+        
+</div>
+        <!-- yha pe dabba khtam -->
 
-      const app = initializeApp(firebaseConfig);
-      const auth = getAuth(app);
-      const provider = new GoogleAuthProvider();
+</div>  
+<!-- Purii body ka dabba 👆 -->
 
-      document.getElementById("loginBtn").addEventListener("click", () => {
-        signInWithPopup(auth, provider)
-          .then((result) => {
-            console.log("Firebase Login Success:", result.user.email);
-            alert("Logged in successfully as: " + result.user.email);
-          })
-          .catch((error) => {
-            console.error("Firebase Login Error:", error.message);
-            alert("Login failed: " + error.message);
-          });
-      });
-    </script>
-
-    <!-- Preloader Script -->
+<!-- Script yha pe startatat obv... AI se kyoki ye nhi aata -->
     <script>
-      window.addEventListener("load", function () {
-        setTimeout(function () {
-          let preloader = document.getElementById("preloader");
-          if (preloader) {
-            preloader.style.opacity = "0";
-            preloader.style.visibility = "hidden";
-          }
-        }, 3500);
-      });
+        window.addEventListener('load', function(){
+            setTimeout(function(){
+                let preloader = document.getElementById('preloader'); 
+
+                preloader.style.opacity = '0';
+                preloader.style.visibility = 'hidden';
+            }, 3500);
+        });
     </script>
-  </body>
-</html>
+    <script>
+  function handleCredentialResponse(response) {
+    console.log("Encoded JWT ID token: " + response.credential);
+  }
+</script>
+
+    <!-- Script yha khtam -->
+
+</body>
