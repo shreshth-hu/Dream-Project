@@ -7,30 +7,28 @@
     <link rel="stylesheet" type="text/css" href="./sign.css" />
     <link rel="shortcut icon" href="Dream-us favicon.jpg" type="image/x-icon" />
     <style>
-      /* सुंदर कस्टम Google बटन */
+      /* पूरी तरह से फिक्स किया गया सुंदर लॉगिन बटन */
       .custom-google-btn {
-        background: white;
+        background: #ffffff;
         color: #1f1f1f;
-        border: 1px solid #747775;
-        padding: 12px 24px;
+        border: 2px solid #747775;
+        padding: 12px 28px;
         border-radius: 100px;
         font-size: 16px;
-        font-weight: 500;
+        font-weight: bold;
         cursor: pointer;
-        display: flex;
-        align-items: center;
-        gap: 12px;
-        margin: 20px auto;
+        display: block;
+        width: 80%;
+        max-width: 260px;
+        margin: 25px auto;
         font-family: sans-serif;
-        box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
-        transition: background 0.2s;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.15);
+        transition: all 0.2s ease;
+        text-align: center;
       }
       .custom-google-btn:hover {
-        background: #f8f9fa;
-      }
-      .custom-google-btn img {
-        width: 20px;
-        height: 20px;
+        background: #f1f3f4;
+        transform: translateY(-1px);
       }
     </style>
   </head>
@@ -61,9 +59,8 @@
 
       <div class="page-dabba">
         <div class="container">
-          <!-- यह बटन अब कभी गायब नहीं होगा -->
+          <!-- बिना किसी बाहरी इमेज के सॉलिड बटन जो हमेशा काम करेगा -->
           <button class="custom-google-btn" id="loginBtn">
-            <img src="https://gstatic.com" alt="Google" />
             Sign in with Google
           </button>
 
@@ -97,16 +94,15 @@
       const auth = getAuth(app);
       const provider = new GoogleAuthProvider();
 
-      // बटन पर क्लिक होने पर सीधे Firebase लॉगिन विंडो खुलेगी
       document.getElementById("loginBtn").addEventListener("click", () => {
         signInWithPopup(auth, provider)
           .then((result) => {
             console.log("Firebase Login Success:", result.user.email);
-            alert("Logged in as: " + result.user.email);
+            alert("Logged in successfully as: " + result.user.email);
           })
           .catch((error) => {
             console.error("Firebase Login Error:", error.message);
-            alert("Error: " + error.message);
+            alert("Login failed: " + error.message);
           });
       });
     </script>
@@ -125,6 +121,3 @@
     </script>
   </body>
 </html>
-
-<!-- Dekho dosto animation fronted apna authentication apne ko aata nhi in short java script he nhi aati toh iss karay mein jaha hi script hai samjh jao AI kiyela hai apna bina AI wla project bhi jald aayega bas sikh jau abhhi thoda tame do........... 
-                                                Bin Matlab Dhanyawad !!                                                -->
