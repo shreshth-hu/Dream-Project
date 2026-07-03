@@ -200,8 +200,10 @@ body{
   border-radius: 17%;
   background: linear-gradient(to right, #b24d59, #caf609, #f70841);
   animation: box 5s linear infinite;
+  cursor: pointer;
   background-size: 250%;
-  transition: 0.7s ease;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.2s ease;
 }
 
 @keyframes box{
@@ -211,7 +213,8 @@ body{
 }
 
 .container:hover{
-  bottom: 2%;
+  transform: translateY(-10px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
 }
 
 .g_id_signin{
@@ -231,9 +234,53 @@ body{
 .likha-poti{
   position: absolute;
   z-index: 998;
-  left: 37%;
-  top: 50%;
+  left: 20%;
+  top: 55%;
   color: #fff;
   font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
   font-weight: bolder;
+}
+
+/* Resposive laadle bade daii....vice ke liyeee */
+
+@media(max-width: 1300px){
+  header{
+    padding: 3px 2px 3px 2px;
+  }
+
+  .container{
+    scale: 0.8;
+  }
+
+  .image-effect{
+    scale: 0.6;
+  }
+
+  .g_id_signin{
+    z-index: 998;
+    position: absolute;
+  }
+}
+
+/* Laadli chote devicesssssssss */
+
+@media(max-width: 750px){
+  header{
+    padding: 1px 2px 1px 2px;
+  }
+
+  .container{
+    scale: 0.6;
+  }
+
+  .image-effect{
+    scale: 0.5;
+  }
+}
+
+@media(max-width: 465px){
+  .container{
+    scale: 0.5;
+    margin-top: 13%;
+  }
 }
