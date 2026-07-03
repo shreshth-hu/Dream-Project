@@ -72,17 +72,8 @@
     <!-- Purii body ka dabba 👆 -->
 
     <!-- Script yha pe startatat obv... AI se kyoki ye nhi aata -->
-    <script>
-      window.addEventListener("load", function () {
-        setTimeout(function () {
-          let preloader = document.getElementById("preloader");
-          preloader.style.opacity = "0";
-          preloader.style.visibility = "hidden";
-        }, 3500);
-      });
-    </script>
 
-    <!-- Global container to share Firebase Auth logic with the login callback -->
+    <!-- 1. सबसे पहले Firebase और ग्लोबल हैंडलर लोड करें -->
     <script type="module">
       import { initializeApp } from "https://gstatic.com";
       import {
@@ -94,7 +85,7 @@
 
       const firebaseConfig = {
         apiKey: "AIzaSyBdW3lQ8_HSGt8qPhvEFgYSuL9MbRBZ6W0",
-        authDomain: "dream-us-501219.firebaseapp.com",
+        authDomain: "://firebaseapp.com",
         projectId: "dream-us-501219",
         storageBucket: "dream-us-501219.firebasestorage.app",
         messagingSenderId: "97180051145",
@@ -102,29 +93,37 @@
         measurementId: "G-8TXYSZRENN",
       };
 
-      // Initialize Firebase and Authentication
       const app = initializeApp(firebaseConfig);
       const analytics = getAnalytics(app);
       const auth = getAuth(app);
 
-      // Expose the handler function globally so the Google Button callback can see it
+      // इसे सीधे window पर असाइन करें ताकि Google Button इसे तुरंत ढूंढ सके
       window.handleCredentialResponse = function (response) {
-        // 1. Get the login token from the Google Button click
+        console.log("Google token received, sending to Firebase...");
         const credential = GoogleAuthProvider.credential(response.credential);
 
-        // 2. Hand it over to Firebase to register the user in your console
         signInWithCredential(auth, credential)
           .then((result) => {
-            console.log(
-              "Firebase registration success! User email:",
-              result.user.email,
-            );
-            // Optional: Redirect your user to a welcome page here if needed
+            console.log("Success! Firebase User:", result.user.email);
+            alert("Sign in successful for: " + result.user.email);
           })
           .catch((error) => {
-            console.error("Firebase registration failed:", error.message);
+            console.error("Firebase auth error:", error.message);
           });
       };
+    </script>
+
+    <!-- 2. प्रीलोडर स्क्रिप्ट इसके नीचे रखें -->
+    <script>
+      window.addEventListener("load", function () {
+        setTimeout(function () {
+          let preloader = document.getElementById("preloader");
+          if (preloader) {
+            preloader.style.opacity = "0";
+            preloader.style.visibility = "hidden";
+          }
+        }, 3500);
+      });
     </script>
   </body>
 </html>
