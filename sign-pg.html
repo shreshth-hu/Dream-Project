@@ -5,12 +5,36 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Dream us - Sign up</title>
     <link rel="stylesheet" type="text/css" href="./sign.css" />
-
-    <script src="https://google.com" async defer></script>
     <link rel="shortcut icon" href="Dream-us favicon.jpg" type="image/x-icon" />
+    <style>
+      /* सुंदर कस्टम Google बटन */
+      .custom-google-btn {
+        background: white;
+        color: #1f1f1f;
+        border: 1px solid #747775;
+        padding: 12px 24px;
+        border-radius: 100px;
+        font-size: 16px;
+        font-weight: 500;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        margin: 20px auto;
+        font-family: sans-serif;
+        box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+        transition: background 0.2s;
+      }
+      .custom-google-btn:hover {
+        background: #f8f9fa;
+      }
+      .custom-google-btn img {
+        width: 20px;
+        height: 20px;
+      }
+    </style>
   </head>
   <body>
-    <!-- Main Body Container -->
     <div>
       <!-- Loader -->
       <div id="preloader">
@@ -21,46 +45,27 @@
           <div class="circle"><i></i></div>
           <div class="circle"><i></i></div>
           <div class="circle"><i></i></div>
-
           <div class="pre-likha">
             <h1>Loading....</h1>
           </div>
         </div>
       </div>
-      <!-- Loader end -->
 
-      <!-- Background Effects -->
       <div class="animation-box">
         <div class="bg-effect"></div>
       </div>
 
-      <!-- Logo Image -->
       <div class="image-effect">
         <img class="imagica" src="Dream-us favicon.jpg" alt="Dream US" />
       </div>
 
-      <!-- Sign In Card -->
       <div class="page-dabba">
         <div class="container">
-          <!-- Google Auth Configuration -->
-          <div
-            id="g_id_onload"
-            data-client_id="://googleusercontent.com"
-            data-context="signin"
-            data-ux_mode="popup"
-            data-callback="handleCredentialResponse"
-            data-auto_prompt="false"
-          ></div>
-
-          <!-- Google Sign In Button -->
-          <div
-            class="g_id_signin"
-            data-type="standard"
-            data-shape="pill"
-            data-theme="outline"
-            data-text="signin_with"
-            data-size="large"
-          ></div>
+          <!-- यह बटन अब कभी गायब नहीं होगा -->
+          <button class="custom-google-btn" id="loginBtn">
+            <img src="https://gstatic.com" alt="Google" />
+            Sign in with Google
+          </button>
 
           <p class="likha-poti">
             We have only google right now, <br />
@@ -70,27 +75,13 @@
       </div>
     </div>
 
-    <!-- STEP 1: Define the Callback Global Function FIRST -->
-    <script>
-      // Create a global function that Google Library can see immediately
-      window.handleCredentialResponse = function (response) {
-        console.log("Google Token Received!");
-
-        // Custom event to safely pass the token to the Firebase module below
-        const event = new CustomEvent("google-login-success", {
-          detail: response.credential,
-        });
-        window.dispatchEvent(event);
-      };
-    </script>
-
-    <!-- STEP 2: Initialize Firebase and Listen for the Login Event -->
+    <!-- Firebase Script Logic -->
     <script type="module">
       import { initializeApp } from "https://gstatic.com";
       import {
         getAuth,
         GoogleAuthProvider,
-        signInWithCredential,
+        signInWithPopup,
       } from "https://gstatic.com";
 
       const firebaseConfig = {
@@ -104,27 +95,23 @@
 
       const app = initializeApp(firebaseConfig);
       const auth = getAuth(app);
+      const provider = new GoogleAuthProvider();
 
-      // Listen for the login token event
-      window.addEventListener("google-login-success", function (e) {
-        const idToken = e.detail;
-        const credential = GoogleAuthProvider.credential(idToken);
-
-        signInWithCredential(auth, credential)
+      // बटन पर क्लिक होने पर सीधे Firebase लॉगिन विंडो खुलेगी
+      document.getElementById("loginBtn").addEventListener("click", () => {
+        signInWithPopup(auth, provider)
           .then((result) => {
-            console.log(
-              "Successfully logged in via Firebase!",
-              result.user.email,
-            );
-            alert("Welcome! Successfully logged in as: " + result.user.email);
+            console.log("Firebase Login Success:", result.user.email);
+            alert("Logged in as: " + result.user.email);
           })
           .catch((error) => {
-            console.error("Firebase Auth Error:", error.message);
+            console.error("Firebase Login Error:", error.message);
+            alert("Error: " + error.message);
           });
       });
     </script>
 
-    <!-- STEP 3: Preloader Animation Logic -->
+    <!-- Preloader Script -->
     <script>
       window.addEventListener("load", function () {
         setTimeout(function () {
