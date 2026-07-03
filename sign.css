@@ -1,5 +1,4 @@
 * {
-  height: 100%;
   width: 100%;
   box-sizing: border-box;
   overflow: hidden;
@@ -242,7 +241,7 @@ body {
 
 .g_id_signin {
   bottom: 40%;
-  left: 20%;
+  left: 30%;
   position: absolute;
   z-index: 998;
   width: 60%;
@@ -256,6 +255,7 @@ body {
 
 .likha-poti {
   position: absolute;
+  font-size: 16px;
   z-index: 998;
   left: 37%;
   top: 50%;
