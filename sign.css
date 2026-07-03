@@ -2,7 +2,6 @@
   height: 100%;
   width: 100%;
   box-sizing: border-box;
-  overflow: hidden;
 }
 
 body {
@@ -13,6 +12,7 @@ body {
   height: 100%;
   width: 100%;
   display: flex;
+  overflow: hidden;
 }
 
 .animation-box {
@@ -239,10 +239,10 @@ body {
 }
 
 .g_id_signin {
+  position: absolute;
   overflow: visible;
   bottom: 40%;
   left: 20%;
-  position: absolute;
   z-index: 998;
   width: 60%;
   height: 20%;
