@@ -5,11 +5,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Dream us - Sign up</title>
     <link rel="stylesheet" type="text/css" href="./sign.css" />
-    <script src="https://accounts.google.com/gsi/client" async defer></script>
+
+    <script src="https://google.com" async defer></script>
     <link rel="shortcut icon" href="Dream-us favicon.jpg" type="image/x-icon" />
   </head>
   <body>
-    <!-- Puri body ka dabba 👇 -->
+    <!-- Main Body Container -->
     <div>
       <!-- Loader -->
       <div id="preloader">
@@ -28,30 +29,30 @@
       </div>
       <!-- Loader end -->
 
-      <!-- Main bg-effect yha pe niche start -->
+      <!-- Background Effects -->
       <div class="animation-box">
         <div class="bg-effect"></div>
       </div>
-      <!-- Main bg-effect yha pe khatam -->
 
-      <!-- Image aayegi uski photo -->
+      <!-- Logo Image -->
       <div class="image-effect">
         <img class="imagica" src="Dream-us favicon.jpg" alt="Dream US" />
       </div>
-      <!-- Image yha khtm -->
 
-      <!-- Yha pe pura dabba banega -->
+      <!-- Sign In Card -->
       <div class="page-dabba">
         <div class="container">
+          <!-- Google Auth Configuration -->
           <div
             id="g_id_onload"
-            data-client_id="97180051145-ao99uhacpl7eu4mrpr7srmjgcqmdf4vc.apps.googleusercontent.com"
+            data-client_id="://googleusercontent.com"
             data-context="signin"
             data-ux_mode="popup"
             data-callback="handleCredentialResponse"
             data-auto_prompt="false"
           ></div>
 
+          <!-- Google Sign In Button -->
           <div
             class="g_id_signin"
             data-type="standard"
@@ -67,13 +68,23 @@
           </p>
         </div>
       </div>
-      <!-- yha pe dabba khtam -->
     </div>
-    <!-- Purii body ka dabba 👆 -->
 
-    <!-- Script yha pe startatat obv... AI se kyoki ye nhi aata -->
+    <!-- STEP 1: Define the Callback Global Function FIRST -->
+    <script>
+      // Create a global function that Google Library can see immediately
+      window.handleCredentialResponse = function (response) {
+        console.log("Google Token Received!");
 
-    <!-- 1. सबसे पहले Firebase और ग्लोबल हैंडलर लोड करें -->
+        // Custom event to safely pass the token to the Firebase module below
+        const event = new CustomEvent("google-login-success", {
+          detail: response.credential,
+        });
+        window.dispatchEvent(event);
+      };
+    </script>
+
+    <!-- STEP 2: Initialize Firebase and Listen for the Login Event -->
     <script type="module">
       import { initializeApp } from "https://gstatic.com";
       import {
@@ -81,7 +92,6 @@
         GoogleAuthProvider,
         signInWithCredential,
       } from "https://gstatic.com";
-      import { getAnalytics } from "https://gstatic.com";
 
       const firebaseConfig = {
         apiKey: "AIzaSyBdW3lQ8_HSGt8qPhvEFgYSuL9MbRBZ6W0",
@@ -90,30 +100,31 @@
         storageBucket: "dream-us-501219.firebasestorage.app",
         messagingSenderId: "97180051145",
         appId: "1:97180051145:web:5fa994d88f036108bfcf18",
-        measurementId: "G-8TXYSZRENN",
       };
 
       const app = initializeApp(firebaseConfig);
-      const analytics = getAnalytics(app);
       const auth = getAuth(app);
 
-      // इसे सीधे window पर असाइन करें ताकि Google Button इसे तुरंत ढूंढ सके
-      window.handleCredentialResponse = function (response) {
-        console.log("Google token received, sending to Firebase...");
-        const credential = GoogleAuthProvider.credential(response.credential);
+      // Listen for the login token event
+      window.addEventListener("google-login-success", function (e) {
+        const idToken = e.detail;
+        const credential = GoogleAuthProvider.credential(idToken);
 
         signInWithCredential(auth, credential)
           .then((result) => {
-            console.log("Success! Firebase User:", result.user.email);
-            alert("Sign in successful for: " + result.user.email);
+            console.log(
+              "Successfully logged in via Firebase!",
+              result.user.email,
+            );
+            alert("Welcome! Successfully logged in as: " + result.user.email);
           })
           .catch((error) => {
-            console.error("Firebase auth error:", error.message);
+            console.error("Firebase Auth Error:", error.message);
           });
-      };
+      });
     </script>
 
-    <!-- 2. प्रीलोडर स्क्रिप्ट इसके नीचे रखें -->
+    <!-- STEP 3: Preloader Animation Logic -->
     <script>
       window.addEventListener("load", function () {
         setTimeout(function () {
@@ -128,4 +139,5 @@
   </body>
 </html>
 
-<!-- Dekho bhaiyo yeh auth wala apne ko aata nhi toh gemini pro se krvaya hai paisa hai thoda sa mere pass toh 👉👈 baaki animation aur fronted toh apun he banaya hai kyoki apne ko wo aata hai.. yeh sab AI ka apun nhi krenge per pehle sikhna padega niii...-->
+<!-- Dekho dosto animation fronted apna authentication apne ko aata nhi in short java script he nhi aati toh iss karay mein jaha hi script hai samjh jao AI kiyela hai apna bina AI wla project bhi jald aayega bas sikh jau abhhi thoda tame do........... 
+                                                Bin Matlab Dhanyawad !!                                                -->
