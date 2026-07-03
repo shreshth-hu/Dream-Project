@@ -29,7 +29,6 @@
       <!-- Loader end -->
 
       <!-- Main bg-effect yha pe niche start -->
-
       <div class="animation-box">
         <div class="bg-effect"></div>
       </div>
@@ -77,27 +76,22 @@
       window.addEventListener("load", function () {
         setTimeout(function () {
           let preloader = document.getElementById("preloader");
-
           preloader.style.opacity = "0";
           preloader.style.visibility = "hidden";
         }, 3500);
       });
     </script>
-    <script>
-      function handleCredentialResponse(response) {
-        console.log("Encoded JWT ID token: " + response.credential);
-      }
-    </script>
 
+    <!-- Global container to share Firebase Auth logic with the login callback -->
     <script type="module">
-      // Import the functions you need from the SDKs you need
-      import { initializeApp } from "https://www.gstatic.com/firebasejs/12.15.0/firebase-app.js";
-      import { getAnalytics } from "https://www.gstatic.com/firebasejs/12.15.0/firebase-analytics.js";
-      // TODO: Add SDKs for Firebase products that you want to use
-      // https://firebase.google.com/docs/web/setup#available-libraries
+      import { initializeApp } from "https://gstatic.com";
+      import {
+        getAuth,
+        GoogleAuthProvider,
+        signInWithCredential,
+      } from "https://gstatic.com";
+      import { getAnalytics } from "https://gstatic.com";
 
-      // Your web app's Firebase configuration
-      // For Firebase JS SDK v7.20.0 and later, measurementId is optional
       const firebaseConfig = {
         apiKey: "AIzaSyBdW3lQ8_HSGt8qPhvEFgYSuL9MbRBZ6W0",
         authDomain: "dream-us-501219.firebaseapp.com",
@@ -108,11 +102,31 @@
         measurementId: "G-8TXYSZRENN",
       };
 
-      // Initialize Firebase
+      // Initialize Firebase and Authentication
       const app = initializeApp(firebaseConfig);
       const analytics = getAnalytics(app);
-    </script>
+      const auth = getAuth(app);
 
-    <!-- Script yha khtam -->
+      // Expose the handler function globally so the Google Button callback can see it
+      window.handleCredentialResponse = function (response) {
+        // 1. Get the login token from the Google Button click
+        const credential = GoogleAuthProvider.credential(response.credential);
+
+        // 2. Hand it over to Firebase to register the user in your console
+        signInWithCredential(auth, credential)
+          .then((result) => {
+            console.log(
+              "Firebase registration success! User email:",
+              result.user.email,
+            );
+            // Optional: Redirect your user to a welcome page here if needed
+          })
+          .catch((error) => {
+            console.error("Firebase registration failed:", error.message);
+          });
+      };
+    </script>
   </body>
 </html>
+
+<!-- Dekho bhaiyo yeh auth wala apne ko aata nhi toh gemini pro se krvaya hai paisa hai thoda sa mere pass toh 👉👈 baaki animation aur fronted toh apun he banaya hai kyoki apne ko wo aata hai.. yeh sab AI ka apun nhi krenge per pehle sikhna padega niii...-->
