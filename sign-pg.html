@@ -96,13 +96,43 @@
             }, 3500);
         });
     </script>
-    <script>
-  function handleCredentialResponse(response) {
-    console.log("Encoded JWT ID token: " + response.credential);
+   
+   <script>
+  function decodeJwtResponse(token) {
+      let base64Url = token.split('.')[1];
+      let base64 = base64Url.replace(/-/g, '+').replace(/_/g, '/');
+      let jsonPayload = decodeURIComponent(atob(base64).split('').map(function(c) {
+          return '%' + ('00' + c.charCodeAt(0).toString(16)).slice(-2);
+      }).join(''));
+      return JSON.parse(jsonPayload);
   }
 
-  window.location.href = 'The-notes.html'
-  
+  function handleCredentialResponse(response) {
+      // 1. Decode the token
+      const responsePayload = decodeJwtResponse(response.credential);
+      
+      // 2. Save the PFP for the notes page
+      localStorage.setItem("userPfp", responsePayload.picture);
+
+      // 3. Prepare the data to send to Google Sheets
+      const scriptURL = 'https://script.google.com/macros/s/AKfycbw4Eqqy_vPQ-oiEEUqAS1ZNa3isURpQQHhnM6a_fAKGl4cOigUFVd30YmJKHPdDwhP3/exec'; // <-- PASTE YOUR LONG URL HERE
+      const formData = new FormData();
+      formData.append('email', responsePayload.email);
+      formData.append('name', responsePayload.name);
+
+      // 4. Send the data, THEN redirect
+      fetch(scriptURL, { method: 'POST', body: formData })
+          .then(response => {
+              console.log("Success! Email sent to Google Sheets.");
+              // Redirect ONLY after the data is sent
+              window.location.href = 'The-notes.html';
+          })
+          .catch(error => {
+              console.error('Error!', error.message);
+              // Still redirect even if the sheet fails, so the user isn't stuck
+              window.location.href = 'The-notes.html';
+          });
+  }
 </script>
 
     <!-- Script yha khtam -->
