@@ -1,0 +1,110 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: #a5655a;
+}
+
+/* Loader ka css yha pe shuru */
+
+#preloader {
+  position: absolute;
+  z-index: 999;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100vh;
+  background-color: #4182be;
+  transition:
+    opacity 1s ease-in-out,
+    visibility 1s ease;
+  top: 0;
+  left: 0;
+}
+
+.loader {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 200px;
+}
+
+.book {
+  position: absolute;
+  background-color: greenyellow;
+  height: 205px;
+  width: 150px;
+  animation: book 3s ease infinite;
+  border-radius: 13px;
+}
+
+@keyframes book {
+  0% {
+    box-shadow: 10px 10px 0px 8px rgba(0, 0, 0, 0.5);
+    transform: rotate(0.5deg);
+    transform: translateY(-30px);
+  }
+  100% {
+    transform: rotate(-27deg);
+  }
+}
+
+.likh {
+  position: absolute;
+  font-family:
+    system-ui,
+    -apple-system,
+    BlinkMacSystemFont,
+    "Segoe UI",
+    Roboto,
+    Oxygen,
+    Ubuntu,
+    Cantarell,
+    "Open Sans",
+    "Helvetica Neue",
+    sans-serif;
+  font-size: 19px;
+  color: #7e6ac9;
+  font-weight: bolder;
+  text-align: center;
+  left: 23%;
+  top: 38%;
+  z-index: 500;
+}
+
+.strip {
+  width: 13%;
+  height: 100%;
+  background-color: #efeefe;
+  border-radius: 13px;
+}
+
+.qoute {
+  position: relative;
+  z-index: 501;
+  font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
+  font-size: 20px;
+  color: #ffff;
+  top: 100%;
+  animation: woosh 3s infinite;
+}
+
+@keyframes woosh {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+
+  100% {
+    opacity: 1;
+    top: 80%;
+  }
+}
+
+/* loader ka css yha pe khtm */

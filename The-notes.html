@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>The Notes - Home</title>
+
+    <!-- Icon Yha Pe -->
+    <link rel="shortcut icon" href="The-Notes logo.jpg" type="image/x-icon" />
+
+    <!-- Font Awesome Yha Pe -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
+      integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+
+    <!-- Animation Scroll Krne Pe Yha Pe -->
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+
+    <!-- Css ho gya yaha pe... -->
+    <link rel="stylesheet" href="Notes.css" />
+  </head>
+  <body>
+    <!-- Puri body niche -->
+    <div>
+      <div id="preloader">
+        <div class="loader">
+          <div class="book">
+            <div class="strip"></div>
+
+            <span class="likh">The Notes</span>
+          </div>
+          <h4 class="qoute">&zeta;; The Bright Future Of You</h4>
+        </div>
+      </div>
+    </div>
+    <!-- Puri Body Khtm Yha Pe -->
+  </body>
+
+  <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+  <script>
+    AOS.init();
+  </script>
+
+  <script>
+    window.addEventListener("load", function () {
+      setTimeout(function () {
+        let preloader = document.getElementById("preloader");
+
+        preloader.style.opacity = "0";
+        preloader.style.visibility = "hidden";
+      }, 2500);
+    });
+  </script>
+</html>
