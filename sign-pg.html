@@ -70,7 +70,7 @@
      data-shape="pill"
      data-theme="outline"
      data-text="signin_with"
-     data-size="large">
+     data-size="large" onclick="go()">
 </div>
          
     <p class="likha-poti">We have only google right now, <br> as they supported us 🙏🫠</p>
@@ -100,6 +100,12 @@
   function handleCredentialResponse(response) {
     console.log("Encoded JWT ID token: " + response.credential);
   }
+</script>
+
+<script>
+    function go(){
+        window.location.href= 'The-notes.html'
+    }
 </script>
 
     <!-- Script yha khtam -->
