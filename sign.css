@@ -241,10 +241,10 @@ body {
 
 .g_id_signin {
   bottom: 40%;
-  left: 30%;
+  left: 46%;
   position: absolute;
   z-index: 998;
-  width: 60%;
+  width: 15%;
   height: 20%;
   transition: color 0.9s ease;
 }
@@ -257,7 +257,7 @@ body {
   position: absolute;
   font-size: 16px;
   z-index: 998;
-  left: 20%;
+  left: 45.5%;
   top: 55%;
   color: #fff;
   font-family:
@@ -300,6 +300,18 @@ body {
 
   .image-effect {
     scale: 0.5;
+  }
+
+  .likha-poti {
+    font-size: 13px;
+    left: 37%;
+    top: 48%;
+  }
+
+  .g_id_signin {
+    font-size: 12px;
+    width: 34%;
+    left: 37%;
   }
 }
 
